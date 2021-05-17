@@ -20,6 +20,21 @@
 import axios from "axios";
 
 const Card = (article) => {
+  //making the elements//
+  const cardDiv = document.createElement('div');
+  const headlineDiv = cardDiv.createElement('div');
+  const authorDiv = cardDiv.createElement('div');
+  const imageDiv = authorDiv.createElement('div');
+  const authorSpan = authorDiv.createElement('span');
+
+  //element class assigning//
+  cardDiv.classList.add('card');
+  headlineDiv.classList.add('headline');
+  authorDiv.classList.add('author');
+  imageDiv.classList.add('img-container');
+
+
+/*
   const cardDiv = document.createElement('div');
   cardDiv.classList.add('card');
   
@@ -42,6 +57,7 @@ const Card = (article) => {
   
   cardDiv.appendChild(author);
   return cardDiv;
+  */
 }  
 
 
