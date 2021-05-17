@@ -61,13 +61,13 @@ const Card = (article) => {
 
 
   const cardAppender = (selector) => {
-    const ceessess = document.querySelector(selector);
+    const ceess = document.querySelector(selector);
     axios
     .get('https://lambda-times-api.herokuapp.com/articles')
     .then(item=>{
       const articles = item.data.articles;
       for(const article in articles) {
-        articles[article].forEach(i => ceessess.appendChild(Card(i)))
+        articles[article].forEach(i => ceess.appendChild(Card(i)))
       }
     })
     .catch(error=>{
