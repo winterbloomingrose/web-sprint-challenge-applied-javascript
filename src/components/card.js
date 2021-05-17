@@ -22,10 +22,10 @@ import axios from "axios";
 const Card = (article) => {
   //making elements//
   const cardDiv = document.createElement('div');
-  const headlineDiv = cardDiv.createElement('div');
-  const authorDiv = cardDiv.createElement('div');
-  const imageDiv = authorDiv.createElement('div');
-  const authorSpan = authorDiv.createElement('span');
+  const headlineDiv = document.createElement('div');
+  const authorDiv = document.createElement('div');
+  const imageDiv = document.createElement('div');
+  const authorSpan = document.createElement('span');
 
   //element class assigning//
   cardDiv.classList.add('card');
@@ -40,36 +40,16 @@ const Card = (article) => {
   authorDiv.appendChild(authorSpan);
 
   //contents//
-  headlineDiv.textContent = headline;
+  headlineDiv.textContent = `${article.headline}`;
+  const imageImg = document.createElement('img');
+  imageDiv.appendChild(imageImg);
+  imageImg.setAttribute('src', article.authorPhoto);
+  authorSpan.textContent = `${article.authorName}`;
 
-/*
-  const cardDiv = document.createElement('div');
-  cardDiv.classList.add('card');
-  
-  const headlineDiv = cardDiv.createElement('div');
-    headlineDiv.classList.add('headline');
-    headlineDiv.textContent = article.headline;
-  cardDiv.appendChild(headlineDiv);
-
-  const authorDiv = cardDiv.createElement('div');
-    authorDiv.classList.add('author');
-    const imageCont = authorDiv.createElement('div');
-      imageCont.classList.add('img-container')
-      const authorImg = imageCont.createElement('img');
-      authorImg.setAttribute('src',article.authorPhoto);
-      authorDiv.appendChild(imageCont);
-
-    const authornameSpan = cardDiv.createElement('span');
-    authornameSpan.textContent = article.authorName;
-    authorDiv.appendChild(authornameSpan);
-  
-  cardDiv.appendChild(author);
   return cardDiv;
-  */
 }  
 
 
-const cardAppender = (selector) => {
   // TASK 6
     // ---------------------
     // Implement this function that takes a css selector as its only argument.
@@ -78,6 +58,9 @@ const cardAppender = (selector) => {
     // Create a card from each and every article object in the response, using the Card component.
     // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
+
+
+  const cardAppender = (selector) => {
+  }
 
 export { Card, cardAppender }
