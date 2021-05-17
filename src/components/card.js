@@ -25,19 +25,20 @@ const Card = (article) => {
   
   const headlineDiv = cardDiv.createElement('div');
     headlineDiv.classList.add('headline');
-    headlineDiv.textContent(headline);
+    headlineDiv.textContent = article.headline;
   cardDiv.appendChild(headlineDiv);
 
   const authorDiv = cardDiv.createElement('div');
     authorDiv.classList.add('author');
     const imageCont = authorDiv.createElement('div');
-      const image = imageCont.createElement('img');
-      image.setAttribute('src',authorPhoto);
+      imageCont.classList.add('img-container')
+      const authorImg = imageCont.createElement('img');
+      authorImg.setAttribute('src',article.authorPhoto);
       authorDiv.appendChild(imageCont);
 
     const authornameSpan = cardDiv.createElement('span');
-    authornameSpan.textContent(authorName);
-    author.appendChild(authornameSpan);
+    authornameSpan.textContent = article.authorName;
+    authorDiv.appendChild(authornameSpan);
   
   cardDiv.appendChild(author);
   return cardDiv;
