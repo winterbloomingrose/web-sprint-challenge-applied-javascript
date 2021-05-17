@@ -1,41 +1,49 @@
-import axios from "axios";
-const Card = (article) => {
-  const card = document.createElement("div");
-    card.classList("card");
-  
-  const headline = card.createElement("div");
-    headline.classList('headline');
-    headline.textContent('headline');
+  // TASK 5
+      // ---------------------
+      // Implement this function, which should return the markup you see below.
+      // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
+      // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
+      // The text inside elements will be set using their `textContent` property (NOT `innerText`).
+      // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
+      //
+      // <div class="card">
+      //   <div class="headline">{ headline }</div>
+      //   <div class="author">
+      //     <div class="img-container">
+      //       <img src={ authorPhoto }>
+      //     </div>
+      //     <span>By { authorName }</span>
+      //   </div>
+      // </div>
+  //
 
-  const author = card.createElement("div");
-    author.classList('author');
-    const imageCont = author.createElement("div");
-      const image = imageCont.createElement("img");
-      image.setAttribute('src','authorPhoto');
-    const authorname = card.createElement("span");
-    authorname.textContent('authorname');
+import axios from "axios";
+
+const Card = (article) => {
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('card');
+  
+  const headlineDiv = cardDiv.createElement('div');
+    headlineDiv.classList.add('headline');
+    headlineDiv.textContent(headline);
+  cardDiv.appendChild(headlineDiv);
+
+  const authorDiv = cardDiv.createElement('div');
+    authorDiv.classList.add('author');
+    const imageCont = authorDiv.createElement('div');
+      const image = imageCont.createElement('img');
+      image.setAttribute('src',authorPhoto);
+      authorDiv.appendChild(imageCont);
+
+    const authornameSpan = cardDiv.createElement('span');
+    authornameSpan.textContent(authorName);
+    author.appendChild(authornameSpan);
+  
+  cardDiv.appendChild(author);
+  return cardDiv;
 }  
 
 
-  // TASK 5
-    // ---------------------
-    // Implement this function, which should return the markup you see below.
-    // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
-    // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
-    // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-    // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
-    //
-    // <div class="card">
-    //   <div class="headline">{ headline }</div>
-    //   <div class="author">
-    //     <div class="img-container">
-    //       <img src={ authorPhoto }>
-    //     </div>
-    //     <span>By { authorName }</span>
-    //   </div>
-    // </div>
-  //
-/*
 const cardAppender = (selector) => {
   // TASK 6
     // ---------------------
@@ -48,4 +56,3 @@ const cardAppender = (selector) => {
 }
 
 export { Card, cardAppender }
-*/
