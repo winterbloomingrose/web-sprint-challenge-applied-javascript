@@ -22,8 +22,9 @@ const Tabs = (topics) => {
     tabDivs.classList.add('tab');
     tabDivs.textContent = text;
     topicDiv.appendChild(tabDivs);
+    return tabDivs
   });
-  return topics;
+  return topicDiv;
 }
 
 const tabsAppender = (selector) => {
@@ -35,7 +36,12 @@ const tabsAppender = (selector) => {
     // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
   axios.get('https://lambda-times-api.herokuapp.com/');
-  .then(response)
+    .then(resPonse=>{
+      document.querySelector(selector).appendChild(Tabs(resPonse.data.topics))
+    })
+    .catch(error => {
+      console.log("error", error)
+    })
 }
 
 export { Tabs, tabsAppender }
