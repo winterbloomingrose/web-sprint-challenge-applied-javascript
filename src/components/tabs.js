@@ -14,12 +14,12 @@ const Tabs = (topics) => {
     // </div>
   //
   const topicDiv= document.createElement('div');
-  topicDiv.classList("topics");
+  /*topicDiv.classList("topics");
   topics.forEach({
     const newTab = topics.createElement("div");
     newTab.classList("tab")
     tabClass.textcontent(topicso)
-  });
+  });*/
 }
 
 const tabsAppender = (selector) => {
